@@ -1,8 +1,14 @@
 language: node_js
 node_js:
-	- "node"
-	- "7"
+  - "node"
+  - "7"
 install:
-	- npm install
-script: 
-	- npm test
+  - npm install
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: /bin/sh deploy.sh
+  on:
+    branch: master
+script:
+  - npm test
